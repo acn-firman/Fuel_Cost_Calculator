@@ -2,15 +2,26 @@ package org.fidz;
 
 import java.util.Scanner;
 
+/**
+ * description of class Main 
+ *
+ * @author firman.lasaman
+ * @version v1.0.0
+ */
 public class Main {
-    public static final double UNLEADED_PRICE = 44.00;
-    public static final double DIESEL_PRICE = 38.00;
-    public static final double PREMIUM_PRICE = 50.00;
 
-    public static final String UNLEADED = "unleaded";
-    public static final String DIESEL = "diesel";
-    public static final String PREMIUM = "premium"; 
+    public static final double UNLEADED_PRICE = 44.00; // UNLEADED_PRICE 
+    public static final double DIESEL_PRICE = 38.00; // DIESEL_PRICE
+    public static final double PREMIUM_PRICE = 50.00; // PREMIUM_PRICE
 
+    public static final String UNLEADED = "unleaded"; // UNLEADED
+    public static final String DIESEL = "diesel"; // DIESEL
+    public static final String PREMIUM = "premium";  // PREMIUM
+
+    /**
+     * This program is a simple gasoline station calculator.
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean isValid;
@@ -60,6 +71,11 @@ public class Main {
         System.out.println("Program terminated.");
     }
 
+    /** 
+     * This method is used to check if fuel type is valid.
+     * @param fuelType type of fuel
+     * @return true if fuel type is valid
+     */
     public static boolean isValidFuelType(String fuelType) {
         String lowerCase = fuelType.toLowerCase();
         if (lowerCase.equals("unleaded") || lowerCase.equals("diesel") || lowerCase.equals("premium")) {
@@ -68,6 +84,11 @@ public class Main {
         return false;
     }
 
+    /**
+     * This method is used to get price per liter.
+     * @param fuelType type of fuel
+     * @return price per liter
+     */
     public static String getPricePerLiter(String fuelType) {
         String lowerCase = fuelType.toLowerCase();
         if (lowerCase.equals("unleaded")) {
@@ -80,6 +101,13 @@ public class Main {
         return "";
     }
 
+    /**
+     * This method is used to compute total price of fuel.
+     * @param fuelType type of fuel
+     * @param liters number of liters
+     * @return total price of fuel
+     * 
+     */
     public static double computeTotalPrice(String fuelType, double liters) {
         String lowerCase = fuelType.toLowerCase();
         if (lowerCase.equals("unleaded")) {
@@ -93,11 +121,21 @@ public class Main {
     }
 
     // generate total amount including vat
+    /**
+     * This method is used to generate total amount including vat.
+     * @param totalPrice total price of fuel
+     * @return total amount including vat
+     */
     public static double computeTotalAmount(double totalPrice) {
         return totalPrice + computeVat(totalPrice);
     }
 
     // calculate the vat from fuel totalprice
+    /**
+     * This method is used to calculate the vat from fuel totalprice.
+     * @param totalPrice total price of fuel
+     * @return vat amount
+     */
     public static double computeVat(double totalPrice) {
         return totalPrice * 0.12;
     }
